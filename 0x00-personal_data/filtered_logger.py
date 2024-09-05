@@ -19,7 +19,7 @@ def filter_datum(fields: List[str],
     """
 
     count:int = -1
-    split_msg: List[int] = message.split(seperator)
+    split_msg: List[str] = message.split(seperator)
     for msg in split_msg:
         count += 1
         for field in fields:
@@ -28,5 +28,5 @@ def filter_datum(fields: List[str],
                 result: str = re.sub(pattern, redaction, msg)
                 split_msg[count] = f'{field}={result}'
 
-    msg: str = ';'.join(split_msg)
-    return msg
+    obsfucated_msg: str = ';'.join(split_msg)
+    return obsfucated_msg
