@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """1 function: filter_datum"""
-
+from typing import List
 import re
 
 
-def filter_datum(fields, redaction, message, seperator):
+def filter_datum(fields: List[str],
+                 redaction: str,
+                 message: str,
+                 seperator: str) -> str:
     """
     Function to returns the log message obfuscated
     Args:
