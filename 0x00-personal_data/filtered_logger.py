@@ -18,15 +18,15 @@ def filter_datum(fields: List[str],
                     is separating all fields in the log line (message)
     """
 
-    count = -1
-    split_msg = message.split(seperator)
+    count:int = -1
+    split_msg: List[int] = message.split(seperator)
     for msg in split_msg:
         count += 1
         for field in fields:
             if field in msg:
-                pattern = fr'{msg}'
-                result = re.sub(pattern, redaction, msg)
+                pattern: str = fr'{msg}'
+                result: str = re.sub(pattern, redaction, msg)
                 split_msg[count] = f'{field}={result}'
 
-    msg = ';'.join(split_msg)
+    msg: str = ';'.join(split_msg)
     return msg
